@@ -1,14 +1,14 @@
 import json
 import uuid
 class BobaTea:
-    def __init__(self):
-        self.order_id
-        self.tea
-        self.milk
-        self.sugar
-        self.topping
-        self.ice
-        self.price
+    def __init__(self, tea, milk, sugar, topping, ice):
+        self.order_id = ''
+        self.tea = tea
+        self.milk = milk
+        self.sugar = sugar
+        self.topping = topping
+        self.ice = ice
+        self.price = 0
 
     def to_json(self):
         return json.dumps(self, default=lambda o: o.__dict__,
@@ -19,7 +19,7 @@ class BobaTea:
 
 class TeaOrder:
     def __init__(self, count):
-        self.id = str(uuid.uuid5().int)
+        self.id = str(uuid.uuid4().int)
         self.count = count
         self.boba_tea = []
 

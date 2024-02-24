@@ -47,3 +47,6 @@ def add_bobatea(order_id, boba):
     if order_id in order_list.keys():
         order = order_list[order_id]
         order.add_boba(boba)
+
+if __name__ == '__main__':
+    order_id = place_order(1, 'Black_Tea', 'Oat_Milk', 10, 'Taro_Balls', 10)

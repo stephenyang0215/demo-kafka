@@ -24,10 +24,10 @@ def run():
 
 
 def add_ice(order_id, boba):
-    if boba.ice == "0":
+    if boba['ice'] == "0":
         print("No Ice")
     else :
-        print(f"Add {boba.ice}% Ice!")
+        print(f"Add {boba['ice']}% Ice!")
     ice_producer.produce("ice", key=order_id, value=json.dumps(boba))
 
 if __name__ == '__main__':

@@ -9,7 +9,7 @@ client_config = dict(config_parser['kafka_client'])
 
 tea_producer = Producer(client_config)
 order_consumer = Consumer(client_config)
-order_consumer.subscribe(['order'])
+order_consumer.subscribe(['orders'])
 
 def run():
     while True:
@@ -20,21 +20,23 @@ def run():
             pass
         else:
             boba = json.loads(record.value())
-            add_tea(boba.key(), boba)
+            print(type(boba))
+            print(boba)
+            add_tea(record.key(), boba)
 
 def add_tea(order_id, boba):
-    if boba.tea == "Black_Tea":
+    if boba['tea'] == "Black_Tea":
         print("Add black tea!")
-        boba.price += 1.5
-    elif boba.tea == "White_Tea":
+        boba['price'] += 1.5
+    elif boba['tea'] == "White_Tea":
         print("Add white tea!")
-        boba.price += 1
-    elif boba.tea == "Herbal_Tea":
+        boba['price'] += 1
+    elif boba['tea'] == "Herbal_Tea":
         print("Add herbal tea!")
-        boba.price += 1.5
-    elif boba.tea == "Yellow_Tea":
+        boba['price'] += 1.5
+    elif boba['tea'] == "Yellow_Tea":
         print("Add yellow tea!")
-        boba.price += 1
+        boba['price'] += 1
     tea_producer.produce("tea", key=order_id, value=json.dumps(boba))
 
 if __name__ == '__main__':

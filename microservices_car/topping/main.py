@@ -23,21 +23,21 @@ def run():
             add_topping(record.key(), boba)
 
 def add_topping(order_id, boba):
-    if boba.topping == "Agar_Pearls":
+    if boba['topping'] == "Agar_Pearls":
         print("Add agar pearls")
-        boba.price+=1
-    elif boba.sugar == "Coconut_Jelly":
+        boba['price']=boba['price'] + 1
+    elif boba['topping'] == "Coconut_Jelly":
         print("Add Coconut Jelly!")
-        boba.price += 1.5
-    elif boba.sugar == "Taro_Balls":
+        boba['price'] = boba['price'] + 1.5
+    elif boba['topping'] == "Taro_Balls":
         print("Add Taro Balls!")
-        boba.price += 1.5
-    elif boba.sugar == "Boba":
+        boba['price'] = boba['price'] + 1.5
+    elif boba['topping'] == "Boba":
         print("Add Boba!")
-        boba.price += 1
-    elif boba.sugar == "Grass_Jelly":
+        boba['price'] = boba['price'] + 1
+    elif boba['topping'] == "Grass_Jelly":
         print("Add Grass Jelly!")
-        boba.price += 1
+        boba['price'] = boba['price'] + 1
     topping_producer.produce("topping", key=order_id, value=json.dumps(boba))
 
 if __name__ == '__main__':

@@ -25,9 +25,9 @@ def run():
 def add_sugar(order_id, boba):
     if boba.sugar == "0":
         print("Sugar Free!")
-        boba.price-=0.5 # Health promotion discount
+        boba['price'] = boba['price']-0.5 # Health promotion discount
     else:
-        print(f"Add {boba.sugar}% sugar!")
+        print(f"Add {boba['sugar']}% sugar!")
     sugar_producer.produce("sugar", key=order_id, value=json.dumps(boba))
 
 

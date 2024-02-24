@@ -23,18 +23,18 @@ def run():
             add_milk(record.key(), boba)
 
 def add_milk(order_id, boba):
-    if boba.milk == "Whole_Milk":
+    if boba['milk'] == "Whole_Milk":
         print("Add whole milk!")
-        boba.price+=1
-    elif boba.milk == "Low-Fat_Milk":
+        boba['price'] = boba['price']+1
+    elif boba['milk'] == "Low-Fat_Milk":
         print("Add low fat milk!")
-        boba.price += 1
-    elif boba.milk == "Oat_Milk":
+        boba['price'] = boba['price']+1
+    elif boba['milk'] == "Oat_Milk":
         print("Add oat milk!")
-        boba.price += 2
-    elif boba.milk == "Nut_Milk":
+        boba['price'] = boba['price']+2
+    elif boba['milk'] == "Nut_Milk":
         print("Add nut milk!")
-        boba.price += 1.5
+        boba['price'] = boba['price']+1.5
     milk_producer.produce("milk", key=order_id, value=json.dumps(boba))
 
 if __name__ == '__main__':
