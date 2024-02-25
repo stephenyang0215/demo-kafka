@@ -14,6 +14,9 @@ boba_producer = Producer(producer_config)
 order_list = {}
 
 def place_order(count, tea, milk, sugar, topping, ice):
+    count = int(count)
+    sugar = int(sugar)
+    ice = int(ice)
     order = TeaOrder(count)
     order_list[order.id] = order
     for i in range(count):
