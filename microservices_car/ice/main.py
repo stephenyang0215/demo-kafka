@@ -3,7 +3,7 @@ from confluent_kafka import Producer, Consumer
 import json
 
 config_parser = ConfigParser(interpolation=None)
-config_file = open('config.properties', 'r')
+config_file = open('ice/config.properties', 'r')
 config_parser.read_file(config_file)
 client_config = dict(config_parser['kafka_client'])
 

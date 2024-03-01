@@ -5,7 +5,7 @@ from configparser import ConfigParser
 from confluent_kafka import Producer, Consumer
 
 config_parser = ConfigParser(interpolation=None)
-config_file = open('config.properties', 'r')
+config_file = open('service/config.properties', 'r')
 config_parser.read_file(config_file)
 producer_config = dict(config_parser['kafka_client'])
 consumer_config = dict(config_parser['kafka_client'])##Try removing it
@@ -51,5 +51,3 @@ def add_bobatea(order_id, boba):
         order = order_list[order_id]
         order.add_boba(boba)
 
-if __name__ == '__main__':
-    order_id = place_order(1, 'Black_Tea', 'Oat_Milk', 10, 'Taro_Balls', 10)

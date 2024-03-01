@@ -3,7 +3,7 @@ from confluent_kafka import Producer, Consumer
 import json
 
 config_parser = ConfigParser(interpolation=None)
-config_file = open('config.properties', 'r')
+config_file = open('sugar/config.properties', 'r')
 config_parser.read_file(config_file)
 client_config = dict(config_parser['kafka_client'])
 
@@ -23,7 +23,7 @@ def run():
             add_sugar(record.key(), boba)
 
 def add_sugar(order_id, boba):
-    if boba.sugar == "0":
+    if boba['sugar'] == "0":
         print("Sugar Free!")
         boba['price'] = boba['price']-0.5 # Health promotion discount
     else:

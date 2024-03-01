@@ -1,0 +1,21 @@
+version: '1'
+services:
+  web:
+    build: .
+    ports:
+      - "8000:5000"
+  tea:
+    build: .
+    command: python3 tea/main.py
+  sugar:
+    build: .
+    command: python3 sugar/main.py
+  milk:
+    build: .
+    command: python3 milk/main.py
+  topping:
+    build: .
+    command: python3 topping/main.py
+  ice:
+    build: .
+    command: python3 ice/main.py

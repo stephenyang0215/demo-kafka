@@ -23,6 +23,15 @@ class TeaOrder:
         self.count = count
         self.boba_tea = []
 
+    def add_boba(self, boba):
+            self.boba_tea.append(boba)
+
+    def get_boba_tea(self):
+        return self.boba_tea
+
+    def __str__(self):
+        return json.dumps(self.__dict__)
+
     def to_json(self):
         return json.dumps(self, default=lambda o:o.__dict__,
                           sort_keys=False, indent=4)
