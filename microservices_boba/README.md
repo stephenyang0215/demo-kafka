@@ -32,4 +32,4 @@ The app will start executing the corresponding operation step.
 The stream processing follows the following order:\
 tea -> milk -> sugar -> topping -> ice
 
-Once the order is done, the client can retrace the price and the drink.
+Once the order is done, the client can retrieve the price and the drink.
