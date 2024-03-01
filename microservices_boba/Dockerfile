@@ -1,6 +1,6 @@
 FROM python:3.9
-RUN mkdir -p /microservices_car && chown -R root:root /microservices_car
-WORKDIR /microservices_car
+RUN mkdir -p /microservices_boba && chown -R root:root /microservices_boba
+WORKDIR /microservices_boba
 ENV FLASK_APP=service/app.py
 ENV FLASK_RUN_HOST=0.0.0.0
 COPY requirements.txt requirements.txt
